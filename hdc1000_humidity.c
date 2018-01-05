@@ -6,8 +6,7 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 
-#define HDC1000_ADDRESS             0x40
-#define HDC1000_RDY_PIN             4
+#define ADDRESS         0x40
 
 #define TEMPERATURE	0x00
 #define HUMIDITY	0x01
@@ -58,7 +57,7 @@ int main(void) {
     int fd;
     int Data; 
 
-    fd = wiringPiI2CSetup(HDC1000_ADDRESS);
+    fd = wiringPiI2CSetup(ADDRESS);
 
     i2c_write(fd, CONFIG, 0x10, 0x00 );
     Data = i2c_read(fd, HUMIDITY);
