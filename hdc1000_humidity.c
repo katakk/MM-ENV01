@@ -32,10 +32,6 @@ int main(void) {
     unsigned char set_value[3];
     unsigned char get_value[1];
 
-    // RDYピン準備
-    wiringPiSetupGpio();
-    pinMode(HDC1000_RDY_PIN, INPUT);
-
     // I2C準備
     fd = wiringPiI2CSetup(HDC1000_ADDRESS);
 
@@ -60,9 +56,6 @@ int main(void) {
     }
 
     // 変換待ち
-//    while(digitalRead(HDC1000_RDY_PIN) == 1) {
-//        ;
- //   }
 usleep(62500); // 0.0625
     // 値取得
     ret = read(fd, result, 4);
