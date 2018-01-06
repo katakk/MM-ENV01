@@ -9,7 +9,7 @@ exponent=`printf '%d' $exponent`
 lux_raw=0x`echo $result|cut -b 4-6`
 lux_raw=`printf '%d' $lux_raw`
 lux=`echo "0.01 * (2 ^ $exponent ) * $lux_raw" | bc`
-echo "LUX = $lux"
+echo "$lux"
 
 
 
