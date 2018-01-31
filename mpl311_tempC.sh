@@ -9,5 +9,8 @@ temp_rawp=0x\
 `i2cget -y 1 $MPL331_ADDR 0x05 b| cut -b 3`
 temp_raw=`printf '%d' $temp_raw`
 temp_rawp=`printf '%d' $temp_rawp`
+if [ $temp_raw -gt 128 ] ; then
+temp_raw=-`expr 256 - $temp_raw`
+fi
 echo "$temp_raw.$temp_rawp"
 
